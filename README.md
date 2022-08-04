@@ -22,6 +22,12 @@ navigate a submarine in the seas.
 
 decode binary encoded reports.
 
+### Day 4 Bingo tk
+
+### Day 5 Hydrothermal Venture
+
+avoid hydrothermal clouds.
+
 ----
 
-updated: 2022-01-25
+updated: 2022-08-03
