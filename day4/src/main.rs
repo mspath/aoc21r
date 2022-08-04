@@ -3,6 +3,8 @@ fn main() {
     let input = include_str!("input.txt");
     let result_breakfast = breakfast(input);
     println!("breakfast: {}", result_breakfast);
+    let result_lunch = lunch(input);
+    println!("lunch: {}", result_lunch);
 }
 
 #[derive(PartialEq)]
@@ -118,5 +120,31 @@ fn breakfast(input: &str) -> i32 {
 }
 
 fn lunch(input: &str) -> i32 {
+    
+    let (numbers_str, boards_str) = input.split_once("\n\n").unwrap();
+
+    let numbers: Vec<usize> = numbers_str
+        .split(",")
+        .map(|n| n.parse().unwrap())
+        .collect();
+    println!("{:?}", numbers);
+
+    let boards: Vec<&str> = boards_str.split("\n\n").collect();
+    let boards: Vec<Vec<&str>> = boards.iter()
+        .map(|s| s.split_whitespace().collect())
+        .collect();
+    let boards: Vec<Vec<usize>> = boards
+        .iter()
+        .map(|bb| { bb.iter().map(|s| s.parse().unwrap()).collect() })
+        .collect();
+    let mut bingo_cards: Vec<BingoCard> = boards.iter().map (|bb| {
+        new_bingo_card(bb)
+    }).collect();
+    numbers.iter().try_for_each(|n| {
+        bingo_cards = bingo_cards.iter().map(|bc| new_bingo_card_with_number(bc, *n)).collect();
+        let bingo = bingo_cards.iter().all(|c| check_bingo(c));
+        if bingo { println!("{}", n); }
+        if bingo { None } else { Some(()) }
+    });
     0
 }

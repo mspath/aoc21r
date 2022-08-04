@@ -82,6 +82,7 @@ fn lunch(input: &str) -> usize {
             }
         } else {
             // we assume the input is clean
+            // i.e. all other lines are valid diagonals
             let dx = if x2 - x1 > 0 { 1 } else { -1 };
             let dy = if y2 - y1 > 0 { 1 } else { -1 };
             let mut x = x1;
@@ -101,8 +102,18 @@ fn lunch(input: &str) -> usize {
 #[cfg(test)]
 mod tests {
     #[test]
+    fn check_breakfast_sample() {
+        assert_eq!(super::breakfast(include_str!("sample.txt")), 5);
+    }
+
+    #[test]
     fn check_breakfast() {
         assert_eq!(super::breakfast(include_str!("input.txt")), 6005);
+    }
+
+    #[test]
+    fn check_lunch_sample() {
+        assert_eq!(super::lunch(include_str!("sample.txt")), 12);
     }
 
     #[test]
