@@ -42,22 +42,22 @@ fn lunch(input: &str) -> i32 {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn part_one_sample() {
+    fn test_breakfast_sample() {
         assert_eq!(super::breakfast(include_str!("sample.txt")), 7);
     }
 
     #[test]
-    fn part_one() {
+    fn test_breakfast() {
         assert_eq!(super::breakfast(include_str!("input.txt")), 1374);
     }
 
     #[test]
-    fn part_two_sample() {
+    fn test_lunch_sample() {
         assert_eq!(super::lunch(include_str!("sample.txt")), 5);
     }
 
     #[test]
-    fn part_two() {
+    fn test_lunch() {
         assert_eq!(super::lunch(include_str!("input.txt")), 1418);
     }
 }
