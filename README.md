@@ -4,8 +4,6 @@
 
 I'll attempt to solve them in Rust while learning it. purely educational.
 
-----
-
 [Advent of Code]:https://adventofcode.com/2021 
 
 ---
@@ -28,6 +26,11 @@ decode binary encoded reports.
 
 avoid hydrothermal clouds.
 
-----
+---
 
-updated: 2022-08-03
+```
+language: rust
+repo: aoc21r
+status: active
+updated: 2022-12-01
+```
